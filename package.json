@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/atlansien/js_excercise_for_backend_7/issues"
   },
-  "homepage": "https://github.com/atlansien/js_excercise_for_backend_7#readme"
+  "homepage": "https://github.com/atlansien/js_excercise_for_backend_7#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
 }

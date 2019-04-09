@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/atlansien/js_excercise_for_backend_7#readme",
   "dependencies": {
+    "dayjs": "^1.8.12",
     "express": "^4.16.4"
   },
   "devDependencies": {

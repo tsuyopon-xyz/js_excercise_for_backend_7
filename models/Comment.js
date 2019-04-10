@@ -6,11 +6,11 @@ let nextId = 1;
 
 class Comment {
   constructor({ username, body }) {
-    (this.id = nextId++),
-      (this.username = username),
-      (this.body = body),
-      (this.createdAt = daysjs().format("YYYY年MM月DD日 HH:mm:ss")),
-      (this.updatedAt = daysjs().format("YYYY年MM月DD日 HH:mm:ss"));
+    this.id = nextId++,
+    this.username = username,
+    this.body = body,
+    this.createdAt = daysjs().format("YYYY年MM月DD日 HH:mm:ss"),
+    this.updatedAt = daysjs().format("YYYY年MM月DD日 HH:mm:ss");
   }
 }
 

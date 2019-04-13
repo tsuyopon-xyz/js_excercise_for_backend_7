@@ -16,7 +16,7 @@ describe('comment.findAllのテスト', () => {
         username: comment.username,
         body: comment.body,
         createdAt: comment.createdAt,
-        updatedAt: comment.updatedAt
+        updatedAt: comment.updatedAt,
       });
     });
   });

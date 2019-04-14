@@ -1,5 +1,9 @@
-const Comment = require('../models/Comment');　// eslint-disable-line
+const Comments = require('../models/Comment');
 
 module.exports = {
-  getComment: (req, res) => {},　// eslint-disable-line
+  getComment: (req, res) => {
+    const storedComments = Comments.findAll();
+
+    res.status(200).json(storedComments);
+  },
 };

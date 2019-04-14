@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "lint": "eslint --fix",
+    "lint": "eslint --fix controllers models routers test",
     "precommit": "lint-staged"
   },
   "lint-staged": {

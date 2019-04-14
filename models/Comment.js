@@ -23,4 +23,8 @@ for (let i = 0; i < 3; i++) {
   comments.push(comment);
 }
 
-module.exports = {};
+module.exports = {
+  findAll: () => {
+    return comments;
+  },
+};

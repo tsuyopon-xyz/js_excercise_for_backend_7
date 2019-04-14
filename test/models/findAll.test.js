@@ -1,10 +1,10 @@
 const assert = require('power-assert');
-const comment = require('../../models/Comment');
+const Comment = require('../../models/Comment');
 
 describe('comment.findAllのテスト', () => {
-  const comments = comment.findAll();
+  const comments = Comment.findAll();
   it('findAllはメソッドである', () => {
-    assert.equal(typeof comment.findAll, 'function');
+    assert.equal(typeof Comment.findAll, 'function');
   });
   it('commentsは配列である', () => {
     assert.equal(Array.isArray(comments), true);

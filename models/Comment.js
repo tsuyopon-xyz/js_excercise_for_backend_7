@@ -18,7 +18,7 @@ class Comment {
 for (let i = 0; i < 3; i++) {
   const comment = new Comment({
     username: 'username' + i,
-    body: 'body' + i
+    body: 'body' + i,
   });
   comments.push(comment);
 }
@@ -26,5 +26,5 @@ for (let i = 0; i < 3; i++) {
 module.exports = {
   findAll: () => {
     return comments;
-  }
+  },
 };

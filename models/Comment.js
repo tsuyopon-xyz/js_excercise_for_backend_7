@@ -41,5 +41,7 @@ module.exports = {
     });
 
     comments.push(comment);
+
+    return comment;
   },
 };

@@ -36,11 +36,11 @@ describe('Comment.createCommentメソッドの作成', () => {
 
     const newComment = Comment.createComment(data);
     assert.deepEqual(newComment, {
-      id: data.id,
-      username: data.username,
-      body: data.body,
-      createdAt: data.createdAt,
-      updatedAt: data.updatedAt,
+      id: newComment.id,
+      username: newComment.username,
+      body: newComment.body,
+      createdAt: newComment.createdAt,
+      updatedAt: newComment.updatedAt,
     });
 
     const currentComments = Comment.findAll();

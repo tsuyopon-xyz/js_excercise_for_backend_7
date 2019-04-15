@@ -27,4 +27,14 @@ describe('Comment.updateCommentのテスト', () => {
       }
     });
   });
+  it('idのプロパティ値と合致するCommentがない場合エラーが返される', () => {
+    const invalidId = { id: 9999999999 };
+
+    try {
+      Comment.updateComment(invalidId);
+      assert.fail();
+    } catch (error) {
+      assert.equal(error.message, 'idと合致するCommentが見つかりません');
+    }
+  });
 });

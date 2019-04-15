@@ -47,7 +47,6 @@ module.exports = {
     comment.username = username;
     comment.body = body;
     comment.updatedAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
-    comments.splice(id, comment);
     return comment;
   },
 };

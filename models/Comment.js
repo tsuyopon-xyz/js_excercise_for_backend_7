@@ -33,6 +33,10 @@ module.exports = {
         'idに適切でない値が入っています、1以上の数字を入れてください'
       );
     }
+    const comment = comments.find(comment => id === comment.id);
+    if (!comment) {
+      throw new Error('idと合致するCommentが見つかりません');
+    }
     username;
     body;
   },

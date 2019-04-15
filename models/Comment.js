@@ -27,4 +27,8 @@ module.exports = {
   findAll: () => {
     return comments;
   },
+  createComment: ({ username, body }) => {
+    username;
+    body;
+  },
 };

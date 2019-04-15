@@ -40,6 +40,8 @@ module.exports = {
     if (!username) {
       throw new Error('usernameは必須です');
     }
-    body;
+    if (!body) {
+      throw new Error('bodyは必須です');
+    }
   },
 };

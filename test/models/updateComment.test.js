@@ -37,4 +37,14 @@ describe('Comment.updateCommentのテスト', () => {
       assert.equal(error.message, 'idと合致するCommentが見つかりません');
     }
   });
+  it('usernameの引数に値が入ってない場合エラーが返される', () => {
+    const data = { id: 1, body: 'test body' };
+
+    try {
+      Comment.updateComment(data);
+      assert.fail();
+    } catch (error) {
+      assert.equal(error.message, 'usernameは必須です');
+    }
+  });
 });

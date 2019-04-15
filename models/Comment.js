@@ -37,7 +37,9 @@ module.exports = {
     if (!comment) {
       throw new Error('idと合致するCommentが見つかりません');
     }
-    username;
+    if (!username) {
+      throw new Error('usernameは必須です');
+    }
     body;
   },
 };

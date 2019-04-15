@@ -64,7 +64,7 @@ describe('Comment.updateCommentのテスト', () => {
     assert.deepEqual(changedComment, {
       id: data.id,
       username: data.username,
-      body: data.username,
+      body: data.body,
       createdAt: changedComment.createdAt,
       updatedAt: changedComment.updatedAt,
     });

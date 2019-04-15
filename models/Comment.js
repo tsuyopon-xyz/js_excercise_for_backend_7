@@ -9,8 +9,8 @@ class Comment {
     this.id = nextId++;
     this.username = username;
     this.body = body;
-    this.createdAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss');
-    this.updatedAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss');
+    this.createdAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
+    this.updatedAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
   }
 }
 
@@ -43,5 +43,11 @@ module.exports = {
     if (!body) {
       throw new Error('bodyは必須です');
     }
+
+    comment.username = username;
+    comment.body = body;
+    comment.updatedAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
+    comments.splice(id, comment);
+    return comment;
   },
 };

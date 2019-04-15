@@ -31,6 +31,9 @@ module.exports = {
     if (!username) {
       throw new Error('usernameは必須です');
     }
+    if (!body) {
+      throw new Error('bodyは必須です');
+    }
 
     const comment = new Comment({
       username: username,

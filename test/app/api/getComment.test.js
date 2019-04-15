@@ -11,7 +11,7 @@ describe('test 「GET /api/comments」', () => {
       .expect('Content-Type', /json/)
       .expect(200);
 
-    assert;
-    response;
+    const comments = response.body;
+    assert.equal(Array.isArray(comments), true);
   });
 });

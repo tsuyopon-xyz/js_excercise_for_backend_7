@@ -22,7 +22,7 @@ describe('Comment.updateCommentのテスト', () => {
       } catch (error) {
         assert.equal(
           error.message,
-          'id値に適切でない値が入っています、1以上の数字を入れてください'
+          'idに適切でない値が入っています、1以上の数字を入れてください'
         );
       }
     });

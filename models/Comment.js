@@ -28,7 +28,11 @@ module.exports = {
     return comments;
   },
   updateComment: ({ id, username, body }) => {
-    id;
+    if (typeof id !== 'number' || id < 1) {
+      throw new Error(
+        'idに適切でない値が入っています、1以上の数字を入れてください'
+      );
+    }
     username;
     body;
   },

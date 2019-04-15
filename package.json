@@ -4,8 +4,9 @@
   "description": "このレポジトリは[Web白熱教室](https://tsuyopon.xyz/)の[JavaScriptの学習コンテンツ > JavaScriptバックエンド編](https://tsuyopon.xyz/learning-contents/web-dev/javascript/backend/)にある「[【エクササイズ】掲示板APIを実装する](https://tsuyopon.xyz/learning-contents/web-dev/javascript/backend/js-excercise-for-backend-7/)」で利用するものです。",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "mocha",
-    "lint": "eslint --fix",
+    "lint": "eslint --fix controllers models routers test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -45,6 +46,7 @@
     "mocha": "^6.1.3",
     "nodemon": "^1.18.10",
     "power-assert": "^1.6.1",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "supertest": "^4.0.2"
   }
 }

@@ -13,5 +13,12 @@ describe('test 「GET /api/comments」', () => {
 
     const comments = response.body;
     assert.equal(Array.isArray(comments), true);
+    comments.forEach(comment => {
+      assert.equal(typeof comment.id, 'number');
+      assert.equal(typeof comment.username, 'string');
+      assert.equal(typeof comment.body, 'string');
+      assert.equal(typeof comment.createdAt, 'string');
+      assert.equal(typeof comment.updatedAt, 'string');
+    });
   });
 });

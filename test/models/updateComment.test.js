@@ -47,4 +47,14 @@ describe('Comment.updateCommentのテスト', () => {
       assert.equal(error.message, 'usernameは必須です');
     }
   });
+  it('bodyの引数に値が入ってない場合エラーが返される', () => {
+    const data = { id: 1, username: 'test user' };
+
+    try {
+      Comment.updateComment(data);
+      assert.fail();
+    } catch (error) {
+      assert.equal(error.message, 'bodyは必須です');
+    }
+  });
 });

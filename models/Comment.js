@@ -28,7 +28,15 @@ module.exports = {
     return comments;
   },
   createComment: ({ username, body }) => {
-    username;
-    body;
+    if (!username) {
+      throw new Error('usernameは必須です');
+    }
+
+    const comment = new Comment({
+      username: username,
+      body: body,
+    });
+
+    comments.push(comment);
   },
 };

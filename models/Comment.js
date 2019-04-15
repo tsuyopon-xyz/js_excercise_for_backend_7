@@ -27,4 +27,9 @@ module.exports = {
   findAll: () => {
     return comments;
   },
+  updateComment: ({ id, username, body }) => {
+    id;
+    username;
+    body;
+  },
 };

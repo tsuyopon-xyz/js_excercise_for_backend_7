@@ -57,4 +57,20 @@ describe('Comment.updateCommentのテスト', () => {
       assert.equal(error.message, 'bodyは必須です');
     }
   });
+  it('適切なデータを渡した際、指定したidと合致するcommentのusernameとbodyが変更され、返される', () => {
+    const data = { id: 1, username: 'update user', body: 'update body' };
+
+    const changedComment = Comment.updateComment(data);
+    assert.deepEqual(changedComment, {
+      id: data.id,
+      username: data.username,
+      body: data.username,
+      createdAt: changedComment.createdAt,
+      updatedAt: changedComment.updatedAt,
+    });
+    assert.equal(changedComment.updatedAt > changedComment.createdAt, true); // 変更された日時の方と作成された日時が違うかのテスト
+
+    const currentComments = Comment.findAll();
+    assert.deepEqual(currentComments[0], changedComment); // 変更したコメントと同じID値の配列に組み込まれているコメントは同じかテスト
+  });
 });

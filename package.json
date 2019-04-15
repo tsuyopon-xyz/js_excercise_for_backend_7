@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "mocha",
-    "lint": "eslint --fix controllers models routers test",
+    "lint": "eslint --fix controller models routers test",
     "precommit": "lint-staged"
   },
   "lint-staged": {

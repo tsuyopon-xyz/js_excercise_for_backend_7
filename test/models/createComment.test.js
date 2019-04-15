@@ -19,4 +19,12 @@ describe('Comment.createCommentメソッドの作成', () => {
       }
     });
   });
+  it('bodyにプロパティ値が入ってない場合エラーが返される', () => {
+    try {
+      Comment.createComment({ username: 'test username' });
+      assert.fail();
+    } catch (error) {
+      assert.equal(error.message, 'bodyは必須です');
+    }
+  });
 });

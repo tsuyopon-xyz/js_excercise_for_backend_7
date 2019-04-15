@@ -25,7 +25,7 @@ for (let i = 0; i < 3; i++) {
 
 module.exports = {
   findAll: () => {
-    return comments;
+    return comments.slice();
   },
   createComment: ({ username, body }) => {
     if (!username) {

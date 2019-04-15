@@ -1,7 +1,7 @@
 const assert = require('power-assert');
 const Comment = require('../../models/Comment');
 
-describe('Comment.createCommentメソッドの作成', () => {
+describe('Comment.createCommentメソッドのテスト', () => {
   it('Comment.createCommentはメソッドである', () => {
     assert.equal(typeof Comment.createComment, 'function');
   });

@@ -1,4 +1,4 @@
-const daysjs = require('dayjs');
+const dayjs = require('dayjs');
 
 const comments = [];
 
@@ -9,8 +9,8 @@ class Comment {
     this.id = nextId++;
     this.username = username;
     this.body = body;
-    this.createdAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss');
-    this.updatedAt = daysjs().format('YYYY年MM月DD日 HH:mm:ss');
+    this.createdAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
+    this.updatedAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
   }
 }
 
@@ -41,6 +41,29 @@ module.exports = {
     });
 
     comments.push(comment);
+
+    return comment;
+  },
+  updateComment: ({ id, username, body }) => {
+    if (typeof id !== 'number' || id < 1) {
+      throw new Error(
+        'idに適切でない値が入っています、1以上の数字を入れてください'
+      );
+    }
+    const comment = comments.find(comment => id === comment.id);
+    if (!comment) {
+      throw new Error('idと合致するCommentが見つかりません');
+    }
+    if (!username) {
+      throw new Error('usernameは必須です');
+    }
+    if (!body) {
+      throw new Error('bodyは必須です');
+    }
+
+    comment.username = username;
+    comment.body = body;
+    comment.updatedAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
 
     return comment;
   },

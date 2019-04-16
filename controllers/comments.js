@@ -6,4 +6,8 @@ module.exports = {
 
     res.status(200).json(storedComments);
   },
+  putComment: (req, res) => {
+    req;
+    res;
+  },
 };

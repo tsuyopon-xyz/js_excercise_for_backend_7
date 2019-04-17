@@ -1,11 +1,12 @@
-const request = require('supertest');
-request;
+const requestHelper = require('supertest');
+
 const app = require('../app');
-app;
+
 module.exports = {
   request: ({ method, endPoint, statusCode }) => {
-    method;
-    endPoint;
-    statusCode;
+    return requestHelper(app)
+      [method](endPoint)
+      .expect('Content-Type', /json/)
+      .expect(statusCode);
   },
 };

@@ -1,14 +1,13 @@
-const request = require('supertest');
+const requestHelper = require('../../../helper/requestHelper');
 const assert = require('power-assert');
-
-const app = require('../../../app');
 
 describe('test 「GET /api/comments」', () => {
   it('GETリクエストで返されたデータは適切である', async () => {
-    const response = await request(app)
-      .get('/api/comments')
-      .expect('Content-Type', /json/)
-      .expect(200);
+    const response = await requestHelper.request({
+      method: 'get',
+      endPoint: '/api/comments',
+      statusCode: 200,
+    });
 
     const comments = response.body;
     assert.equal(Array.isArray(comments), true);

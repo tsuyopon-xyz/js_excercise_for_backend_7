@@ -1,8 +1,18 @@
-const request = require('supertest');
+const requestHelper = require('../../../helper/requestHelper');
 const assert = require('power-assert');
 
-const app = require('../../../app');
+describe('test 「POST /api/comments」', () => {
+  it('usernameを送らなかった場合400エラーが返る', async () => {
+    const data = { body: 'test body' };
 
-app;
-request;
-assert;
+    const response = await requestHelper
+      .request({
+        method: 'post',
+        endPoint: '/api/comments',
+        statusCode: 400,
+      })
+      .send(data);
+
+    assert.deepEqual(response.body, { message: 'usernameは必須です' });
+  });
+});

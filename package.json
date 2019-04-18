@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "mocha",
-    "lint": "eslint --fix controllers models routers test",
+    "lint": "eslint --fix controllers models routers test helper",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -29,6 +29,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "dayjs": "^1.8.12",
     "express": "^4.16.4"
   },

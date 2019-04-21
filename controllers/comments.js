@@ -16,7 +16,7 @@ module.exports = {
       res.status(400).json({ message: error.message });
     }
   },
-  updateComment: (req, res) => {
+  putComment: (req, res) => {
     res;
     req;
   },

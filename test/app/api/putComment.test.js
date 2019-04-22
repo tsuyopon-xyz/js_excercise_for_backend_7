@@ -23,7 +23,11 @@ const putComment = async (code, data) => {
 
 describe('TEST 「PUT api/comments/:id」', () => {
   it('適切でないidを送ると400エラーが返る', async () => {
-    const data = { id: null };
+    const data = {
+      id: null,
+      username: 'test user',
+      body: 'test body',
+    };
 
     const response = await putComment(400, data);
 
@@ -32,12 +36,28 @@ describe('TEST 「PUT api/comments/:id」', () => {
     });
   });
   it('送られたidと紐つくコメントがないと400エラーが返る', async () => {
-    const data = { id: 999999999999 };
+    const data = {
+      id: 999999999999,
+      username: 'test user',
+      body: 'test body',
+    };
 
     const response = await putComment(400, data);
 
     assert.deepEqual(response.body, {
       message: 'idと合致するCommentが見つかりません',
+    });
+  });
+  it('usernameを送らなかった場合400エラーが返る', async () => {
+    const data = {
+      id: 2,
+      body: 'test body',
+    };
+
+    const response = await putComment(400, data);
+
+    assert.deepEqual(response.body, {
+      message: 'usernameは必須です',
     });
   });
 });

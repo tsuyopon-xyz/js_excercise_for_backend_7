@@ -48,7 +48,6 @@ describe('TEST 「PUT api/comments/:id」', () => {
   });
   it('usernameを送らなかった場合400エラーが返る', async () => {
     const data = {
-      id: 2,
       body: 'test body',
     };
 
@@ -69,7 +68,7 @@ describe('TEST 「PUT api/comments/:id」', () => {
       message: 'bodyは必須です',
     });
   });
-  it('適切なデータを送った場合、idと紐つくコメント一件のusernameとbodyが変更され返ってくる、なお配列内にあったidと紐つくコメンは変更されたコメントに上書きされる', async () => {
+  it('適切なデータを送った場合、idと紐つくコメント一件のusernameとbodyが変更され返ってくる、なお配列内にあったidと紐つくコメントは変更されたコメントに上書きされる', async () => {
     const oldComment = await getComments();
 
     const data = {

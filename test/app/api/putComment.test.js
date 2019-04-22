@@ -22,13 +22,22 @@ const putComment = async (code, data) => {
 };
 
 describe('TEST 「PUT api/comments/:id」', () => {
-  it('適切で無いidを送ると400エラーが返る', async () => {
-    const data = { id: '1' };
+  it('適切でないidを送ると400エラーが返る', async () => {
+    const data = { id: null };
 
     const response = await putComment(400, data);
 
     assert.deepEqual(response.body, {
       message: 'idに適切でない値が入っています、1以上の数字を入れてください',
+    });
+  });
+  it('送られたidと紐つくコメントがないと400エラーが返る', async () => {
+    const data = { id: 999999999999 };
+
+    const response = await putComment(400, data);
+
+    assert.deepEqual(response.body, {
+      message: 'idと合致するCommentが見つかりません',
     });
   });
 });

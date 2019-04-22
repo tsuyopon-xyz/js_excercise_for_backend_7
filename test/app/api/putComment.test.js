@@ -60,6 +60,38 @@ describe('TEST 「PUT api/comments/:id」', () => {
       message: 'usernameは必須です',
     });
   });
+  it('bodyを送らなかった場合400エラーが返る', async () => {
+    const data = {
+      id: 2,
+      username: 'test user',
+    };
+
+    const response = await putComment(400, data);
+
+    assert.deepEqual(response.body, {
+      message: 'bodyは必須です',
+    });
+  });
+  it('適切なデータを送った場合、idと紐つくコメント一件のusernameとbodyが変更され返ってくる、なお配列内にあったidと紐つくコメンは変更されたコメントに上書きされる', async () => {
+    const oldComment = await getComments();
+
+    const data = {
+      id: 2,
+      username: 'test updating user',
+      body: 'test updating body',
+    };
+
+    const response = await putComment(200, data);
+
+    const comment = response.body;
+    assert.deepEqual(comment, {
+      id: data.id,
+      username: data.username,
+      body: data.body,
+      createdAt: comment.createdAt,
+      updatedAt: comment.updatedAt,
+    });
+
+    assert.equal(oldComment[1] === comment, false);
+  });
 });
-assert;
-getComments();

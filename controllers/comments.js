@@ -17,7 +17,19 @@ module.exports = {
     }
   },
   putComment: (req, res) => {
-    res;
-    req;
+    try {
+      const parseId = parseInt(req.params.id, 10);
+      const { username, body } = req.body;
+
+      const updatedComment = Comment.updateComment({
+        id: parseId,
+        username,
+        body,
+      });
+
+      res.status(200).json(updatedComment);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
   },
 };

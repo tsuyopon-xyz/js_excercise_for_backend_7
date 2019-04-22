@@ -10,11 +10,11 @@ const getComments = async () => {
   return response;
 };
 
-const putComment = async (code, data) => {
+const putComment = async (code, id, data) => {
   const response = await requestHelper
     .request({
       method: 'put',
-      endPoint: '/api/comments/:id',
+      endPoint: `/api/comments/${id}`,
       statusCode: code,
     })
     .send(data);
@@ -24,12 +24,11 @@ const putComment = async (code, data) => {
 describe('TEST 「PUT api/comments/:id」', () => {
   it('適切でないidを送ると400エラーが返る', async () => {
     const data = {
-      id: null,
       username: 'test user',
       body: 'test body',
     };
 
-    const response = await putComment(400, data);
+    const response = await putComment(400, 0, data);
 
     assert.deepEqual(response.body, {
       message: 'idに適切でない値が入っています、1以上の数字を入れてください',
@@ -37,12 +36,11 @@ describe('TEST 「PUT api/comments/:id」', () => {
   });
   it('送られたidと紐つくコメントがないと400エラーが返る', async () => {
     const data = {
-      id: 999999999999,
       username: 'test user',
       body: 'test body',
     };
 
-    const response = await putComment(400, data);
+    const response = await putComment(400, 9999999, data);
 
     assert.deepEqual(response.body, {
       message: 'idと合致するCommentが見つかりません',
@@ -54,7 +52,7 @@ describe('TEST 「PUT api/comments/:id」', () => {
       body: 'test body',
     };
 
-    const response = await putComment(400, data);
+    const response = await putComment(400, 1, data);
 
     assert.deepEqual(response.body, {
       message: 'usernameは必須です',
@@ -62,11 +60,10 @@ describe('TEST 「PUT api/comments/:id」', () => {
   });
   it('bodyを送らなかった場合400エラーが返る', async () => {
     const data = {
-      id: 2,
       username: 'test user',
     };
 
-    const response = await putComment(400, data);
+    const response = await putComment(400, 1, data);
 
     assert.deepEqual(response.body, {
       message: 'bodyは必須です',
@@ -76,22 +73,21 @@ describe('TEST 「PUT api/comments/:id」', () => {
     const oldComment = await getComments();
 
     const data = {
-      id: 2,
       username: 'test updating user',
       body: 'test updating body',
     };
 
-    const response = await putComment(200, data);
+    const response = await putComment(200, 1, data);
 
     const comment = response.body;
     assert.deepEqual(comment, {
-      id: data.id,
+      id: 1,
       username: data.username,
       body: data.body,
       createdAt: comment.createdAt,
       updatedAt: comment.updatedAt,
     });
 
-    assert.equal(oldComment[1] === comment, false);
+    assert.equal(oldComment[0] === comment, false);
   });
 });

@@ -18,11 +18,11 @@ module.exports = {
   },
   putComment: (req, res) => {
     try {
-      const parseId = parseInt(req.params.id, 10);
+      const parsedId = parseInt(req.params.id, 10);
       const { username, body } = req.body;
 
       const updatedComment = Comment.updateComment({
-        id: parseId,
+        id: parsedId,
         username,
         body,
       });

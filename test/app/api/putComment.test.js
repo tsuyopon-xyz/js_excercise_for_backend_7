@@ -7,7 +7,7 @@ const getComments = async () => {
     endPoint: '/api/comments',
     statusCode: 200,
   });
-  return response;
+  return response.body;
 };
 
 const putComment = async (code, id, data) => {

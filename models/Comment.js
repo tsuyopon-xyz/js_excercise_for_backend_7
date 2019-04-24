@@ -67,4 +67,7 @@ module.exports = {
 
     return comment;
   },
+  deleteComment: ({ id }) => {
+    id;
+  },
 };

@@ -69,7 +69,7 @@ describe('TEST 「PUT api/comments/:id」', () => {
     });
   });
   it('適切なデータを送った場合、idと紐つくコメント一件のusernameとbodyが変更され返ってくる、なお配列内にあったidと紐つくコメントは変更されたコメントに上書きされる', async () => {
-    const oldComment = await getComments();
+    const oldComments = await getComments();
 
     const data = {
       username: 'test updating user',
@@ -87,6 +87,6 @@ describe('TEST 「PUT api/comments/:id」', () => {
       updatedAt: comment.updatedAt,
     });
 
-    assert.equal(oldComment[0] === comment, false);
+    assert.notDeepStrictEqual(oldComments[0], comment);
   });
 });

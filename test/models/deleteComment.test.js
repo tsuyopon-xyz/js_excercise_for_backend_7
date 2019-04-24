@@ -21,11 +21,21 @@ describe('Comment.deleteCommentのテスト', () => {
         assert.fail();
       } catch (error) {
         assert.strictEqual(
-          error.body,
+          error.message,
           'idに適切でない値が入っています、1以上の数字を入れてください'
         );
       }
     });
+  });
+  it('idのプロパティ値と合致するCommentがない場合、エラーが返る', () => {
+    const invalidId = { id: 999999999 };
+
+    try {
+      Comment.deleteComment(invalidId);
+      assert.fail();
+    } catch (error) {
+      assert.strictEqual(error.message, 'idと合致するCommentが見つかりません');
+    }
   });
 });
 assert;

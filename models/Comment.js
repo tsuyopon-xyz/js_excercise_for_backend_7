@@ -78,5 +78,6 @@ module.exports = {
     if (!comment) {
       throw new Error('idと合致するCommentが見つかりません');
     }
+    return comment;
   },
 };

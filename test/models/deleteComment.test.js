@@ -40,12 +40,12 @@ describe('Comment.deleteCommentのテスト', () => {
   it('適切なid値を送った場合、idと合致するComment一件が削除され、返される', () => {});
   const validId = { id: 1 };
 
-  const comment = Comment.deleteComment(validId);
-  assert.deepStrictEqual(comment, {
+  const deletedComment = Comment.deleteComment(validId);
+  assert.deepEqual(deletedComment, {
     id: validId.id,
-    username: comment.username,
-    body: comment.body,
-    createdAt: comment.createdAt,
-    updatadAt: comment.updatadAt,
+    username: deletedComment.username,
+    body: deletedComment.body,
+    createdAt: deletedComment.createdAt,
+    updatedAt: deletedComment.updatedAt,
   });
 });

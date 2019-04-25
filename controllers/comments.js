@@ -16,4 +16,20 @@ module.exports = {
       res.status(400).json({ message: error.message });
     }
   },
+  putComment: (req, res) => {
+    try {
+      const parsedId = parseInt(req.params.id, 10);
+      const { username, body } = req.body;
+
+      const updatedComment = Comment.updateComment({
+        id: parsedId,
+        username,
+        body,
+      });
+
+      res.status(200).json(updatedComment);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  },
 };

@@ -74,10 +74,12 @@ module.exports = {
       );
     }
 
-    const comment = comments.find(comment => id === comment.id);
-    if (!comment) {
+    const target = comments.findIndex(comment => id === comment.id);
+    if (target === -1) {
       throw new Error('idと合致するCommentが見つかりません');
     }
-    return comment;
+    const deletedComment = comments.splice(target, 1)[0];
+
+    return deletedComment;
   },
 };

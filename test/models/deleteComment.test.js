@@ -37,26 +37,26 @@ describe('Comment.deleteCommentのテスト', () => {
       assert.strictEqual(error.message, 'idと合致するCommentが見つかりません');
     }
   });
-  it('適切なid値を送った場合、idと合致するComment一件が返される', () => {});
-  const validId = { id: 1 };
+  it('適切なid値を送った場合、idと合致するComment一件が返される', () => {
+    const validId = { id: 1 };
 
-  const deletedComment = Comment.deleteComment(validId);
-  assert.deepEqual(deletedComment, {
-    id: validId.id,
-    username: deletedComment.username,
-    body: deletedComment.body,
-    createdAt: deletedComment.createdAt,
-    updatedAt: deletedComment.updatedAt,
+    const deletedComment = Comment.deleteComment(validId);
+    assert.deepEqual(deletedComment, {
+      id: validId.id,
+      username: deletedComment.username,
+      body: deletedComment.body,
+      createdAt: deletedComment.createdAt,
+      updatedAt: deletedComment.updatedAt,
+    });
   });
   it('適切なid値を送った場合、idと合致するComment一件が配列から削除される', () => {
     const oldComments = Comment.findAll();
+    const validId = { id: 2 };
 
-    const validId = { id: 1 };
-
-    Comment.deletedComment(validId);
+    Comment.deleteComment(validId);
 
     const currentComments = Comment.findAll();
 
-    assert.equal(oldComments.length + 1, currentComments.length);
+    assert.equal(oldComments.length, currentComments.length + 1);
   });
 });

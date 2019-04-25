@@ -38,7 +38,7 @@ describe('Comment.updateCommentのテスト', () => {
     }
   });
   it('usernameの引数に値が入ってない場合エラーが返される', () => {
-    const data = { id: 1, body: 'test body' };
+    const data = { id: 3, body: 'test body' };
 
     try {
       Comment.updateComment(data);
@@ -48,7 +48,7 @@ describe('Comment.updateCommentのテスト', () => {
     }
   });
   it('bodyの引数に値が入ってない場合エラーが返される', () => {
-    const data = { id: 1, username: 'test user' };
+    const data = { id: 3, username: 'test user' };
 
     try {
       Comment.updateComment(data);
@@ -58,7 +58,7 @@ describe('Comment.updateCommentのテスト', () => {
     }
   });
   it('適切なデータを渡した際、指定したidと合致するcommentのusernameとbodyが変更され、返される', () => {
-    const data = { id: 1, username: 'update user', body: 'update body' };
+    const data = { id: 3, username: 'update user', body: 'update body' };
 
     const changedComment = Comment.updateComment(data);
     assert.deepEqual(changedComment, {

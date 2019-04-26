@@ -67,4 +67,19 @@ module.exports = {
 
     return comment;
   },
+  deleteComment: ({ id }) => {
+    if (typeof id !== 'number' || id < 1) {
+      throw new Error(
+        'idに適切でない値が入っています、1以上の数字を入れてください'
+      );
+    }
+
+    const target = comments.findIndex(comment => id === comment.id);
+    if (target === -1) {
+      throw new Error('idと合致するCommentが見つかりません');
+    }
+    const deletedComment = comments.splice(target, 1)[0];
+
+    return deletedComment;
+  },
 };

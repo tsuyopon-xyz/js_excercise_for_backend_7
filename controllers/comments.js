@@ -33,7 +33,16 @@ module.exports = {
     }
   },
   deleteComment: (req, res) => {
-    req;
-    res;
+    try {
+      const parsedId = parseInt(req.params.id, 10);
+
+      const removeComment = Comment.removeComment({
+        id: parsedId,
+      });
+
+      res.status(200).json(removeComment);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
   },
 };

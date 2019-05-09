@@ -10,6 +10,8 @@ const getComments = async () => {
   return response.body;
 };
 
+getComments;
+
 const deleteComment = async (id, code) => {
   const response = await requestHelper.request({
     method: 'delete',
@@ -19,6 +21,12 @@ const deleteComment = async (id, code) => {
   return response;
 };
 
-assert;
-getComments;
-deleteComment;
+describe('TEST 「DELETE api/comments/:id」', () => {
+  it('適切でないid値を送るとエラーが返る', async () => {
+    const response = await deleteComment(0, 400);
+
+    assert.deepStrictEqual(response.body, {
+      message: 'idに適切でない値が入っています、1以上の数字を入れてください',
+    });
+  });
+});

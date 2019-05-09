@@ -29,4 +29,11 @@ describe('TEST 「DELETE api/comments/:id」', () => {
       message: 'idに適切でない値が入っています、1以上の数字を入れてください',
     });
   });
+  it('idの値と合致するCommentがない場合エラーが返る', async () => {
+    const response = await deleteComment(9999999, 400);
+
+    assert.deepStrictEqual(response.body, {
+      message: 'idと合致するCommentが見つかりません',
+    });
+  });
 });

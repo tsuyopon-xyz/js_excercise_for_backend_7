@@ -10,8 +10,6 @@ const getComments = async () => {
   return response.body;
 };
 
-getComments;
-
 const deleteComment = async (id, code) => {
   const response = await requestHelper.request({
     method: 'delete',
@@ -35,5 +33,24 @@ describe('TEST 「DELETE api/comments/:id」', () => {
     assert.deepStrictEqual(response.body, {
       message: 'idと合致するCommentが見つかりません',
     });
+  });
+  it('適切なid値を送ると、idと合致するCommentが返ってくる、また該当のCommentは配列内から削除される', async () => {
+    const oldComments = await getComments();
+
+    const validId = 4;
+    const response = await deleteComment(validId, 200);
+    const comment = response.body;
+
+    assert.deepStrictEqual(comment, {
+      id: validId,
+      username: comment.username,
+      body: comment.body,
+      createdAt: comment.createdAt,
+      updatedAt: comment.updatedAt,
+    });
+
+    const currentComments = await getComments();
+
+    assert.strictEqual(oldComments.length, currentComments.length + 1);
   });
 });

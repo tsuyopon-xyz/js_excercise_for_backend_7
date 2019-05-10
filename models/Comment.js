@@ -15,7 +15,7 @@ class Comment {
 }
 
 // テスト、確認用に配列に挿入するDBの作成
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 5; i++) {
   const comment = new Comment({
     username: 'username' + i,
     body: 'body' + i,

@@ -1,9 +1,9 @@
 const assert = require('power-assert');
 const Comment = require('../../models/Comment');
 
-describe('Comment.deleteCommentのテスト', () => {
-  it('Comment.deleteCommentはメソッドである', () => {
-    assert.strictEqual(typeof Comment.deleteComment, 'function');
+describe('Comment.removeComment', () => {
+  it('Comment.removeCommentはメソッドである', () => {
+    assert.strictEqual(typeof Comment.removeComment, 'function');
   });
   it('idの引数に不正な値が入っていた場合、エラーが返る', () => {
     const invalidIdList = [
@@ -17,7 +17,7 @@ describe('Comment.deleteCommentのテスト', () => {
 
     invalidIdList.forEach(id => {
       try {
-        Comment.deleteComment(id);
+        Comment.removeComment(id);
         assert.fail();
       } catch (error) {
         assert.strictEqual(
@@ -31,7 +31,7 @@ describe('Comment.deleteCommentのテスト', () => {
     const invalidId = { id: 999999999 };
 
     try {
-      Comment.deleteComment(invalidId);
+      Comment.removeComment(invalidId);
       assert.fail();
     } catch (error) {
       assert.strictEqual(error.message, 'idと合致するCommentが見つかりません');
@@ -40,7 +40,7 @@ describe('Comment.deleteCommentのテスト', () => {
   it('適切なid値を送った場合、idと合致するComment一件が返される', () => {
     const validId = { id: 1 };
 
-    const deletedComment = Comment.deleteComment(validId);
+    const deletedComment = Comment.removeComment(validId);
     assert.deepEqual(deletedComment, {
       id: validId.id,
       username: deletedComment.username,
@@ -53,7 +53,7 @@ describe('Comment.deleteCommentのテスト', () => {
     const oldComments = Comment.findAll();
     const validId = { id: 2 };
 
-    Comment.deleteComment(validId);
+    Comment.removeComment(validId);
 
     const currentComments = Comment.findAll();
 

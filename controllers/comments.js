@@ -32,4 +32,17 @@ module.exports = {
       res.status(400).json({ message: error.message });
     }
   },
+  deleteComment: (req, res) => {
+    try {
+      const parsedId = parseInt(req.params.id, 10);
+
+      const removedComment = Comment.removeComment({
+        id: parsedId,
+      });
+
+      res.status(200).json(removedComment);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  },
 };

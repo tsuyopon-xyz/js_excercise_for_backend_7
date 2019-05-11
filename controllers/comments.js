@@ -36,11 +36,11 @@ module.exports = {
     try {
       const parsedId = parseInt(req.params.id, 10);
 
-      const removeComment = Comment.removeComment({
+      const removedComment = Comment.removeComment({
         id: parsedId,
       });
 
-      res.status(200).json(removeComment);
+      res.status(200).json(removedComment);
     } catch (error) {
       res.status(400).json({ message: error.message });
     }

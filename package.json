@@ -30,8 +30,11 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bookshelf": "^0.15.1",
     "dayjs": "^1.8.12",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "knex": "^0.17.6",
+    "mysql": "^2.17.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

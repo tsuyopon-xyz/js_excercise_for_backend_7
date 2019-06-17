@@ -1,31 +1,39 @@
-const dayjs = require('dayjs');
+/* eslint-disable no-undef */
+// const dayjs = require('dayjs');
 
-const comments = [];
+// const comments = [];
 
-let nextId = 1;
+// let nextId = 1;
 
-class Comment {
-  constructor({ username, body }) {
-    this.id = nextId++;
-    this.username = username;
-    this.body = body;
-    this.createdAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
-    this.updatedAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
-  }
-}
+// class Comment {
+//   constructor({ username, body }) {
+//     this.id = nextId++;
+//     this.username = username;
+//     this.body = body;
+//     this.createdAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
+//     this.updatedAt = dayjs().format('YYYY年MM月DD日 HH:mm:ss SSS');
+//   }
+// }
 
-// テスト、確認用に配列に挿入するDBの作成
-for (let i = 0; i < 5; i++) {
-  const comment = new Comment({
-    username: 'username' + i,
-    body: 'body' + i,
-  });
-  comments.push(comment);
-}
+// // テスト、確認用に配列に挿入するDBの作成
+// for (let i = 0; i < 5; i++) {
+//   const comment = new Comment({
+//     username: 'username' + i,
+//     body: 'body' + i,
+//   });
+//   comments.push(comment);
+// }
+
+const TodoDatas = require('../config/connect');
 
 module.exports = {
   findAll: () => {
-    return comments.slice();
+    new TodoDatas().fetchAll().then(collection => {
+      const data = {
+        content: collection.toArray(),
+      };
+      return data;
+    });
   },
   createComment: ({ username, body }) => {
     if (!username) {

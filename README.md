@@ -9,7 +9,7 @@
 ### 課題をクリアするためのステップ
 
 - [ 1] 依存ライブラリはpackage.jsonで管理する
-- [ ] node_modulesは `.gitignore` でgit管理から外す
+- [ 1] node_modulesは `.gitignore` でgit管理から外す
 - [ ] APIサーバーはexpressで実装する
 - [ ] 以下の機能を実装する
     - [ ] APIサーバーに「GET /api/comments」でリクエストを投げると `コメント一覧` がレスポンス値として返ってくる

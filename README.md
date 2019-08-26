@@ -8,7 +8,7 @@
 
 ### 課題をクリアするためのステップ
 
-- [ ] 依存ライブラリはpackage.jsonで管理する
+- [ 1] 依存ライブラリはpackage.jsonで管理する
 - [ ] node_modulesは `.gitignore` でgit管理から外す
 - [ ] APIサーバーはexpressで実装する
 - [ ] 以下の機能を実装する

@@ -26,11 +26,11 @@
     - `username` が送信データに含まれていない場合は、`usernameは必須です` というエラーメッセージを返し、ステータスコードには400を返す
     - `body` が送信データに含まれていない場合は、`bodyは必須です` というエラーメッセージを返す、ステータスコードには400を返す
 - [ ] [git flow](https://qiita.com/KosukeSone/items/514dd24828b485c69a05)を意識して機能別にブランチを切って作業を進める
-    - [ ] masterブランチから、開発ブランチとして「develop」ブランチを作成する
+    - [1] masterブランチから、開発ブランチとして「develop」ブランチを作成する
     - [ ] developブランチから機能毎にfeatureブランチを作成する(以下のfeatureブランチ名は一例)
-        - [ ] feature/setup-env : 開発を始めるのに必要なライブラリや設定などを行う
-        - [ ] feature/create-a-comment-model : Comment Modelの用意
-        - [ ] feature/implement-the-find-all-method-in-the-model : Comment Modelにコメント一覧を取得するメソッドを用意する
+        - [1] feature/setup-env : 開発を始めるのに必要なライブラリや設定などを行う
+        - [1] feature/create-a-comment-model : Comment Modelの用意
+        - [1] feature/implement-the-find-all-method-in-the-model : Comment Modelにコメント一覧を取得するメソッドを用意する
         - [ ] feature/implement-the-create-method-in-the-model : Comment Modelに新規コメントを追加するメソッドを用意する
         - [ ] feature/implement-the-update-method-in-the-model : Comment Modelに既存コメント1件を更新するメソッドを用意する
         - [ ] feature/implement-the-remove-method-in-the-model : Comment Modelに既存コメント1件を削除するメソッドを用意する

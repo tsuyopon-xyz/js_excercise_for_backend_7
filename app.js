@@ -1,10 +1,10 @@
 const express = require('express');
 const commentsRouter = require('./routers/comments');
 const app = express();
-const PORT = 8080;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/comments', commentsRouter);
 
-app.listen(PORT, function() {
-  console.log(`Example app listening on port ${PORT}`);
-}); 
+module.exports = app; 

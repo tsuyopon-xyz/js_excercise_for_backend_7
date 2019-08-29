@@ -1,4 +1,4 @@
-const assert = requrire('power-assert');
+const assert = require('power-assert');
 const Comment = require('../../../models/Comment');
 
 describe('Comment.findAllメソッドのテスト', () => {

@@ -8,7 +8,6 @@ module.exports = {
   },
 
   postComment: (req, res) => {
-    
     try {
       const {username, body} = req.body;
       const createdComment = Comment.create({username, body});

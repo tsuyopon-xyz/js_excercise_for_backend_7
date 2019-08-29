@@ -1,4 +1,3 @@
-// const express = require('express');
 const commentsRouter = require('./routers/comments');
 const app = require('./app');
 const PORT = 8080;
